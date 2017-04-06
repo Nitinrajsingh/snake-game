@@ -43,8 +43,11 @@ def gameloop():
             message_to_screen("game over ,press p to play again or q to quit",red)
             pygame.display.update()
             for event in pygame.event.get():
+                if  event.type ==  pygame.QUIT:
+                    gameExit=True
+                    gameover=False
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_q or event.key== pygame.QUIT:
+                    if event.key == pygame.K_q:
                         gameExit =True
                         gameover =False
                     if event.key ==pygame.K_p:
@@ -94,7 +97,7 @@ def gameloop():
             randApplex = round(random.randrange(0, 800 - 10) / 10.0) * 10
             randAppley = round((random.randrange(0, 600 - 10)) / 10.0) * 10
             snakeLength+=10
-        clock.tick(20)
+        clock.tick(18)
 
     pygame.quit()
     quit()
